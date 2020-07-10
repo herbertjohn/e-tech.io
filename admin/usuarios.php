@@ -9,18 +9,19 @@ if (!isset($_SESSION['loggedin'])) {
 $DATABASE_HOST = 'localhost';
 $DATABASE_USER = 'root';
 $DATABASE_PASS = 'herbert';
-$DATABASE_NAME = 'phpgallery';
+$DATABASE_NAME = 'phplogin';
 $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
 if (mysqli_connect_errno()) {
 	exit('Falha na conexão com MYSQL: ' . mysqli_connect_error());
 }
 
-$result = mysqli_query($con,"SELECT * FROM images");
+$result = mysqli_query($con,"SELECT * FROM accounts");
 
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
+
 		<style>
 			html {
 				font-family: Tahoma, Geneva, sans-serif;
@@ -35,34 +36,37 @@ $result = mysqli_query($con,"SELECT * FROM images");
 		<nav class="navtop">
 			<div>
 				<?php 	include("assets/menu.php"); ?>
+			</div>
 		</nav>
-		<div class="content">
-			
-			<h1>PRODUTOS</h1>
+		<div class="content">			
+			<h1>USUÁRIOS:</h1>
 
-			
 <?php
 
 echo "<table border='1'>
 <tr>
-<th>Nome</th>
-<th>Descrição</th>
-<th>Data</th>
+<th>id</th>
+<th>username</th>
+<th>email</th>
+
 </tr>";
 
 while($row = mysqli_fetch_array($result))
 {
 echo "<tr>";
-echo "<td>" . $row['title'] . "</td>";
-echo "<td>" . $row['description'] . "</td>";
-echo  "<td>" . $row['uploaded_date'] . "</td>";
+echo "<td>" . $row['id'] . "</td>";
+echo "<td>" . $row['username'] . "</td>";
+echo "<td>" . $row['email'] . "</td>";
+
 echo "</tr>";
 }
 echo "</table>";
 
 mysqli_close($con);
 ?>
-				</div>
-		</div>
+
+ 
+			
+
 	</body>
 </html>

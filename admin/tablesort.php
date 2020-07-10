@@ -1,26 +1,26 @@
 <?php
-// We need to use sessions, so you should always start sessions using the below code.
+// Precisamos usar sessões, portanto você deve sempre iniciar as sessões usando o código abaixo.
 session_start();
-// If the user is not logged in redirect to the login page...
+// Se o usuário não estiver conectado, redirecione para a página de login...
 if (!isset($_SESSION['loggedin'])) {
-	header('Location: ../../../index.html');
+	header('Location: ../../../index.php');
 	exit;
 }
-// Below is optional, remove if you have already connected to your database.
+// Abaixo é opcional, remova se você já se conectou ao seu banco de dados.
 $mysqli = mysqli_connect('localhost', 'root', 'herbert', 'tablesort');
 
-// For extra protection these are the columns of which the user can sort by (in your database table).
+// Para proteção extra, essas são as colunas pelas quais o usuário pode classificar (na tabela do banco de dados).
 $columns = array('name','age','joined');
 
-// Only get the column if it exists in the above columns array, if it doesn't exist the database table will be sorted by the first item in the columns array.
+// Somente obtenha a coluna se ela existir na matriz de colunas acima; se não existir, a tabela do banco de dados será classificada pelo primeiro item na matriz de colunas.
 $column = isset($_GET['column']) && in_array($_GET['column'], $columns) ? $_GET['column'] : $columns[0];
 
-// Get the sort order for the column, ascending or descending, default is ascending.
+// Obter a ordem de classificação da coluna, crescente ou decrescente, o padrão é crescente.
 $sort_order = isset($_GET['order']) && strtolower($_GET['order']) == 'desc' ? 'DESC' : 'ASC';
 
-// Get the result...
+// Obter o resultado ...
 if ($result = $mysqli->query('SELECT * FROM students ORDER BY ' .  $column . ' ' . $sort_order)) {
-	// Some variables we need for the table.
+	// Algumas variáveis que precisamos para a tabela.
 	$up_or_down = str_replace(array('ASC','DESC'), array('up','down'), $sort_order); 
 	$asc_or_desc = $sort_order == 'ASC' ? 'desc' : 'asc';
 	$add_class = ' class="highlight"';
@@ -39,8 +39,9 @@ if ($result = $mysqli->query('SELECT * FROM students ORDER BY ' .  $column . ' '
 
 		$sql_code = "INSERT INTO arquivo (codigo, arquivo, data) VALUES(null, '$novo_nome', NOW())";
 		if ($mysqli->query($sql_code))
-			$msg = "Arquivo enviado com sucesso!;";
+			$msg = "Arquivo enviado com sucesso!";
 	}
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -98,15 +99,15 @@ if ($result = $mysqli->query('SELECT * FROM students ORDER BY ' .  $column . ' '
 	<body class="loggedin">
 		<nav class="navtop">
 			<div>
-				<h1><a href="home.php"> Admin E-tech</a></h1>
-				<a href="profile.php"><i class="fas fa-user-circle"></i>Perfil</a>
-				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Sair</a>
+				<?php 	include("assets/menu.php"); ?>
 			</div>
 		</nav>
 		<div class="content">
+
+				
+
 			<h2>CADASTRO DE PRODUTOS</h2>
-			<P>nome:</P>
-	<h1>CADASTRO DE PRODUTOS</h1>
+	<?php if(msg !=false) echo "<p> $msg </p>"; ?>
 			<form action="tablesort.php" method="post" enctype="multipart/form-data">
 			Arquivo:<input type="file" required="" name="arquivo">
 			<input type="submit" value="Salvar">

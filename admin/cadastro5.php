@@ -1,60 +1,47 @@
 <?php
 // Precisamos usar sessões, portanto você deve sempre iniciar as sessões usando o código abaixo.
 session_start();
-// Se o usuário não estiver conectado, redirecione para a página de login ...
+// Se o usuário não estiver conectado, redirecione para a página de login...
 if (!isset($_SESSION['loggedin'])) {
-	header('Location: home.php');
+	header('Location: ../../../index.php');
 	exit;
 }
-
+?>
+<?php
 include 'functions.php';
-// A mensagem de saída
+// The output message
 $msg = '';
-// Verifique se o usuário enviou uma nova imagem
+// Check if user has uploaded new image
 if (isset($_FILES['image'], $_POST['title'], $_POST['description'])) {
-	// A pasta onde as imagens serão armazenadas
-	$target_dir = '../images/';
-	// O caminho da nova imagem carregada
+	// The folder where the images will be stored
+	$target_dir = 'phpgallery/images/';
+	// The path of the new uploaded image
 	$image_path = $target_dir . basename($_FILES['image']['name']);
-	// Verifique se a imagem é válida
+	// Check to make sure the image is valid
 	if (!empty($_FILES['image']['tmp_name']) && getimagesize($_FILES['image']['tmp_name'])) {
 		if (file_exists($image_path)) {
-			$msg = 'A imagem já existe, escolha outra ou renomeie essa imagem.';
+			$msg = 'Image already exists, please choose another or rename that image.';
 		} else if ($_FILES['image']['size'] > 500000) {
-			$msg = 'Tamanho do arquivo de imagem muito grande; escolha uma imagem com menos de 500kb.';
+			$msg = 'Image file size too large, please choose an image less than 500kb.';
 		} else {
-			// Tudo está certo agora podemos mover a imagem carregada
+			// Everything checks out now we can move the uploaded image
 			move_uploaded_file($_FILES['image']['tmp_name'], $image_path);
 			// Connect to MySQL
 			$pdo = pdo_connect_mysql();
-			// Inserir informações da imagem no banco de dados (título, descrição, caminho da imagem e data de adição)
+			// Insert image info into the database (title, description, image path, and date added)
 			$stmt = $pdo->prepare('INSERT INTO images VALUES (NULL, ?, ?, ?, CURRENT_TIMESTAMP)');
 	        $stmt->execute([$_POST['title'], $_POST['description'], $image_path]);
 			$msg = 'Image uploaded successfully!';
 		}
 	} else {
-		$msg = 'Faça o upload de uma imagem!';
+		$msg = 'Please upload an image!';
 	}
 }
 ?>
 
-<?php
-// Precisamos usar sessões, portanto você deve sempre iniciar as sessões usando o código abaixo.
-session_start();
-// Se o usuário não estiver conectado, redirecione para a página de login ...
-if (!isset($_SESSION['loggedin'])) {
-	header('Location: ../index.php');
-	exit;
-}
-?>
 <!DOCTYPE html>
 <html>
 	<head>
-
-		<style>
-			html {
-				font-family: Tahoma, Geneva, sans-serif;
-			}</style>
 		<meta charset="utf-8">
 		<title>Admin E-tech</title>
 		<link href="style.css" rel="stylesheet" type="text/css">
@@ -62,14 +49,9 @@ if (!isset($_SESSION['loggedin'])) {
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body class="loggedin">
-		<nav class="navtop">
-			<div>
-				<?php 	include("assets/menu.php"); ?>
+		<div>				
 
-			</div>
-		</nav>
-		<div class="content">
-					
+			<?=template_header('Upload Image')?>
 
 <div class="content upload">
 	<h2>Upload Image</h2>
@@ -85,5 +67,9 @@ if (!isset($_SESSION['loggedin'])) {
 	<p><?=$msg?></p>
 </div>
 
+<?=template_footer()?>
+						
+
+		</div>
 	</body>
 </html>

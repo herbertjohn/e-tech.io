@@ -25,21 +25,7 @@
             <div class="inner">
 
 
-           
-
-
-              <!-- Header -->
-                <header id="header">
-                  <a href="index.html" class="logo"><strong>E-Tech</strong> no rumo da tecnologia.</a>
-
-            <ul class="icons  ">
-              <li>
-                <a href="login.php">Log in</a> / <a href="register.html">Cadastro</a>
-              </li>
-            </ul>
-
-                  
-                </header>
+           <?php include("header.php"); ?>
 
               <!-- Contato -->
               <section class="">
@@ -118,7 +104,7 @@
                     <h2>Menu</h2>
                   </header>
                   <ul>
-                    <li><a href="index.html">Início</a></li>
+                    <li><a href="index.php">Início</a></li>
                     <li><a href="#">Quem somos</a></li>
                     <li>
                       <span class="opener">Serviços</span>
@@ -129,8 +115,8 @@
                         <li><a href="#">Compra e Venda</a></li>
                       </ul>
                     </li>
-                    <li><a href="produtos.html">Produtos</a></li>
-                    <li><a href="contato.html">Contato</a></li>
+                    <li><a href="phpgallery/index.php">Produtos</a></li>
+                    <li><a href="contato.php">Contato</a></li>
                     
                       
                   </ul>

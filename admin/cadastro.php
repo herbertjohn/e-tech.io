@@ -6,21 +6,11 @@ if (!isset($_SESSION['loggedin'])) {
 	header('Location: ../index.php');
 	exit;
 }
-$DATABASE_HOST = 'localhost';
-$DATABASE_USER = 'root';
-$DATABASE_PASS = 'herbert';
-$DATABASE_NAME = 'phpgallery';
-$con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_NAME);
-if (mysqli_connect_errno()) {
-	exit('Falha na conexão com MYSQL: ' . mysqli_connect_error());
-}
-
-$result = mysqli_query($con,"SELECT * FROM images");
-
 ?>
 <!DOCTYPE html>
 <html>
 	<head>
+
 		<style>
 			html {
 				font-family: Tahoma, Geneva, sans-serif;
@@ -35,34 +25,25 @@ $result = mysqli_query($con,"SELECT * FROM images");
 		<nav class="navtop">
 			<div>
 				<?php 	include("assets/menu.php"); ?>
+
+			</div>
 		</nav>
 		<div class="content">
-			
-			<h1>PRODUTOS</h1>
+					
 
-			
-<?php
+			<h3><a href="home.php"> CADASTRO 1 </a> </h3>
+			<p>home</p>
+			<br>
+			<h3><a href="cadastro2.php"> CADASTRO 2 </a> </h3>
+			<p>PopUp com JAVA</p>
+			<br>
+			<h3><a href="cadastro3.php"> CADASTRO 3 </a> </h3>
+			<p>mensagem na pagina</p>
+			<br>
+			<h3> <a href="cadastro4.php"> CADASTRO 4 </a> </h3>
+			<p>previa da imagem</p>
+			<br>
 
-echo "<table border='1'>
-<tr>
-<th>Nome</th>
-<th>Descrição</th>
-<th>Data</th>
-</tr>";
 
-while($row = mysqli_fetch_array($result))
-{
-echo "<tr>";
-echo "<td>" . $row['title'] . "</td>";
-echo "<td>" . $row['description'] . "</td>";
-echo  "<td>" . $row['uploaded_date'] . "</td>";
-echo "</tr>";
-}
-echo "</table>";
-
-mysqli_close($con);
-?>
-				</div>
-		</div>
 	</body>
 </html>

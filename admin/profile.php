@@ -3,7 +3,7 @@
 session_start();
 // If the user is not logged in redirect to the login page...
 if (!isset($_SESSION['loggedin'])) {
-	header('Location: index.html');
+	header('Location: ../index.php');
 	exit;
 }
 $DATABASE_HOST = 'localhost';
@@ -40,13 +40,13 @@ $stmt->close();
 	<body class="loggedin">
 		<nav class="navtop">
 			<div>
-				<h1><a href="home.php"> Admin E-tech</a></h1>
-				<a href="profile.php"><i class="fas fa-user-circle"></i>Profile</a>
-				<a href="logout.php"><i class="fas fa-sign-out-alt"></i>Logout</a>
+				<?php 	include("assets/menu.php"); ?>
 			</div>
 		</nav>
 		<div class="content">
-			<h2>Perfil</h2>
+			
+			
+
 			<div>
 				<p>Detalhes de conta:</p>
 				<table>
