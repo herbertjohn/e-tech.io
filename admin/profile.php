@@ -6,6 +6,9 @@ if (!isset($_SESSION['loggedin'])) {
 	header('Location: ../index.php');
 	exit;
 }
+
+
+
 $DATABASE_HOST = 'localhost';
 $DATABASE_USER = 'root';
 $DATABASE_PASS = 'herbert';
@@ -14,6 +17,8 @@ $con = mysqli_connect($DATABASE_HOST, $DATABASE_USER, $DATABASE_PASS, $DATABASE_
 if (mysqli_connect_errno()) {
 	exit('Failed to connect to MySQL: ' . mysqli_connect_error());
 }
+
+
 // Não temos as informações de senha ou e-mail armazenadas nas sessões, para que possamos obter os resultados do banco de dados.
 $stmt = $con->prepare('SELECT password, email FROM accounts WHERE id = ?');
 // Nesse caso, podemos usar o ID da conta para obter as informações da conta.

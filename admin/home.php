@@ -23,10 +23,11 @@ if (!isset($_SESSION['loggedin'])) {
 	</head>
 	<body class="loggedin">
 		
-					
+					<nav class="navtop">
+			<div>
 
-	<?php include("upload.php"); ?>
+	<?php include("assets/menu.php"); ?>
 
-
+</div></nav>
 	</body>
 </html>

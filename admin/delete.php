@@ -2,32 +2,32 @@
 include 'functions.php';
 $pdo = pdo_connect_mysql();
 $msg = '';
-// Check that the poll ID exists
+// Verifique se o ID da pesquisa existe
 if (isset($_GET['id'])) {
-    // Select the record that is going to be deleted
+    // Selecione o registro que será excluído
     $stmt = $pdo->prepare('SELECT * FROM images WHERE id = ?');
     $stmt->execute([$_GET['id']]);
     $image = $stmt->fetch(PDO::FETCH_ASSOC);
     if (!$image) {
-        die ('Image doesn\'t exist with that ID!');
+        die ('A imagem não existe com esse ID!');
     }
-    // Make sure the user confirms beore deletion
+    // Verifique se o usuário confirma antes da exclusão
     if (isset($_GET['confirm'])) {
         if ($_GET['confirm'] == 'yes') {
-            // User clicked the "Yes" button, delete file & delete record
+            // O usuário clicou no botão "Sim", excluiu o arquivo e excluiu o registro
             unlink($image['path']);
             $stmt = $pdo->prepare('DELETE FROM images WHERE id = ?');
             $stmt->execute([$_GET['id']]);
-            // Output msg
-            $msg = 'You have deleted the image!';
+            // Msg de saída
+            $msg = 'Você excluiu a imagem!<a href="gallery.php">Galeria</a>';
         } else {
-            // User clicked the "No" button, redirect them back to the home/index page
+            // O usuário clicou no botão "Não", redirecione-o de volta para a página inicial / índice
             header('Location: index.php');
             exit;
         }
     }
 } else {
-    die ('No ID specified!');
+    die ('Nenhum ID especificado!');
 }
 ?>
 <?=template_header('Delete')?>
@@ -37,10 +37,10 @@ if (isset($_GET['id'])) {
     <?php if ($msg): ?>
     <p><?=$msg?></p>
     <?php else: ?>
-    <p>Are you sure you want to delete <?=$image['title']?>?</p>
+    <p>Tem certeza de que deseja excluir<?=$image['title']?>?</p>
     <div class="yesno">
-        <a href="delete.php?id=<?=$image['id']?>&confirm=yes">Yes</a>
-        <a href="delete.php?id=<?=$image['id']?>&confirm=no">No</a>
+        <a href="delete.php?id=<?=$image['id']?>&confirm=yes">Sim</a>
+        <a href="delete.php?id=<?=$image['id']?>&confirm=no">Não</a>
     </div>
     <?php endif; ?>
 </div>

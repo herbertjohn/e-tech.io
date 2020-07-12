@@ -10,7 +10,7 @@
 										<h2>Menu</h2>
 									</header>
 									<ul>
-										<li><a href="index.php">Início</a></li>
+										<li><a href="../index.php">Início</a></li>
 										<li><a href="#">Quem somos</a></li>
 										<li>
 											<span class="opener">Serviços</span>
@@ -21,8 +21,8 @@
 												<li><a href="#">Compra e Venda</a></li>
 											</ul>
 										</li>
-										<li><a href="admin/produtos.php">Produtos</a></li>
-										<li><a href="contato.php">Contato</a></li>
+										<li><a href="produtos.php">Produtos</a></li>
+										<li><a href="../contato.php">Contato</a></li>
 										
 											
 									</ul>
@@ -37,16 +37,16 @@
 									</header>
 									<div class="mini-posts">
 										<article>
-											<a href="#" class="image"><img src="<?=$image['path']?>" alt="<?=$image['description']?>" data-id="<?=$image['id']?>" data-title="<?=$image['title']?>" width="300" height="200"></a>
-											<p>J7 Prime - R& 350,00</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="<?=$image['path']?>" alt="<?=$image['description']?>" data-id="<?=$image['id']?>" data-title="<?=$image['title']?>" width="300" height="200"></a>
-											<p>S10 - R$ 800,00</p>
-										</article>
-										<article>
-											<a href="#" class="image"><img src="images/pic09.jpg" alt="" /></a>
-											<p>iPhone X - R$ 1.300,00</p>
+	<div class="images">
+		<?php foreach ($images as $image): ?>
+		<?php if (file_exists($image['path'])): ?>
+		<a href="#">
+			<img src="<?=$image['path']?>" alt="<?=$image['description']?>" data-id="<?=$image['id']?>" data-title="<?=$image['title']?>" width="300" height="200">
+			<span><?=$image['description']?></span>
+		</a>
+		<?php endif; ?>
+		<?php endforeach; ?>
+	</div>
 										</article>
 									</div>
 									<ul class="actions">
