@@ -4,7 +4,15 @@
 
             <ul class="icons  ">
               <li>
-                <a href="login.php">Log in</a> / <a href="register.php">Cadastro</a>
+                <a href="login.php">Login</a>
+              </li>
+              &nbsp;
+               <li>
+              	<a href="register.php">Cadastro</a>
+              </li>
+              &nbsp;
+              <li>
+				<?php include 'shoppingcart/index.php'; ?>
               </li>
             </ul>
 

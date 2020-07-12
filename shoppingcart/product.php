@@ -1,19 +1,19 @@
 <?php
-// Check to make sure the id parameter is specified in the URL
+// Verifique se o parâmetro id está especificado no URL
 if (isset($_GET['id'])) {
-    // Prepare statement and execute, prevents SQL injection
+    // Prepare a instrução e execute, evita a injeção de SQL
     $stmt = $pdo->prepare('SELECT * FROM products WHERE id = ?');
     $stmt->execute([$_GET['id']]);
-    // Fetch the product from the database and return the result as an Array
+    // Busque o produto no banco de dados e retorne o resultado como uma Matriz
     $product = $stmt->fetch(PDO::FETCH_ASSOC);
-    // Check if the product exists (array is not empty)
+    // Verifique se o produto existe (a matriz não está vazia)
     if (!$product) {
-        // Simple error to display if the id for the product doesn't exists (array is empty)
-        die ('Product does not exist!');
+        // Erro simples a ser exibido se o ID do produto não existir (a matriz está vazia)
+        die ('O produto não existe!');
     }
 } else {
-    // Simple error to display if the id wasn't specified
-    die ('Product does not exist!');
+    // Erro simples para exibir se o ID não foi especificado
+    die ('O produto não existe!');
 }
 ?>
 <?=template_header('Product')?>

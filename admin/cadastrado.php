@@ -9,7 +9,7 @@ $total_pages = $mysqli->query('SELECT * FROM images')->num_rows;
 $page = isset($_GET['page']) && is_numeric($_GET['page']) ? $_GET['page'] : 1;
 
 // Número de resultados a serem exibidos em cada página.
-$num_results_on_page = 10;
+$num_results_on_page = 5;
 
 if ($stmt = $mysqli->prepare('SELECT * FROM images ORDER BY id LIMIT ?,?')) {
 	// Calcule a página para obter os resultados que precisamos da nossa tabela.
@@ -22,7 +22,8 @@ if ($stmt = $mysqli->prepare('SELECT * FROM images ORDER BY id LIMIT ?,?')) {
 <!DOCTYPE html>
 <html>
 	<head>
-		<style>
+
+<style>
 
 			.pagination {
 				list-style-type: none;
@@ -65,6 +66,9 @@ if ($stmt = $mysqli->prepare('SELECT * FROM images ORDER BY id LIMIT ?,?')) {
 				background-color: #518acb;
 			}
 			</style>
+
+
+
 		<meta charset="utf-8">
 		<title>Admin E-tech</title>
 		<link href="style.css" rel="stylesheet" type="text/css">
@@ -94,7 +98,8 @@ if ($stmt = $mysqli->prepare('SELECT * FROM images ORDER BY id LIMIT ?,?')) {
 				</tr>
 				<?php endwhile; ?>
 			</table>
-			<div class="centralizado">
+			<div>
+				
 
 			<?php if (ceil($total_pages / $num_results_on_page) > 0): ?>
 			<ul class="pagination">

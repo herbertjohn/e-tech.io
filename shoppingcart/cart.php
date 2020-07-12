@@ -82,7 +82,6 @@ if ($products_in_cart) {
 }
 ?>
 
-<?=template_header('Cart')?>
 
 <div class="cart content-wrapper">
     <h1>Shopping Cart</h1>

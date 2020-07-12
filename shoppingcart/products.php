@@ -1,20 +1,20 @@
 <?php
-// The amounts of products to show on each page
+// A quantidade de produtos a serem exibidos em cada página
 $num_products_on_each_page = 4;
-// The current page, in the URL this will appear as index.php?page=products&p=1, index.php?page=products&p=2, etc...
+// A página atual, no URL, aparecerá como index.php? Page = produtos & p = 1, index.php? Page = produtos & p = 2, etc ...
 $current_page = isset($_GET['p']) && is_numeric($_GET['p']) ? (int)$_GET['p'] : 1;
-// Select products ordered by the date added
+// Selecionar produtos encomendados pela data de adição
 $stmt = $pdo->prepare('SELECT * FROM products ORDER BY date_added DESC LIMIT ?,?');
-// bindValue will allow us to use integer in the SQL statement, we need to use for LIMIT
+// bindValue nos permitirá usar inteiro na instrução SQL, precisamos usar para LIMIT
 $stmt->bindValue(1, ($current_page - 1) * $num_products_on_each_page, PDO::PARAM_INT);
 $stmt->bindValue(2, $num_products_on_each_page, PDO::PARAM_INT);
 $stmt->execute();
-// Fetch the products from the database and return the result as an Array
+// Busque os produtos do banco de dados e retorne o resultado como uma Matriz
 $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
-// Get the total number of products
+// Obtenha o número total de produtos
 $total_products = $pdo->query('SELECT * FROM products')->rowCount();
 ?>
-<?=template_header('Products')?>
+
 
 <div class="products content-wrapper">
     <h1>Products</h1>

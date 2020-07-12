@@ -15,7 +15,6 @@
 
 		<!-- Wrapper -->
 			<div id="wrapper">
-
 				<!-- Main -->
 					<div id="main">
 						<div class="inner">
@@ -113,7 +112,8 @@
 									</div>
 								</section>
 
-						</div>
+						</div>			
+
 					</div>
 
 				<?php include("assets/menu.php"); ?>

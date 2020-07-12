@@ -2,8 +2,6 @@
 					<div id="sidebar">
 						<div class="inner">
 
-							
-
 							<!-- Menu -->
 								<nav id="menu">
 									<header class="major">
@@ -21,7 +19,7 @@
 												<li><a href="#">Compra e Venda</a></li>
 											</ul>
 										</li>
-										<li><a href="admin/produtos.php">Produtos</a></li>
+										<li><a href="produtos.php">Produtos</a></li>
 										<li><a href="contato.php">Contato</a></li>
 										
 											
@@ -37,11 +35,11 @@
 									</header>
 									<div class="mini-posts">
 										<article>
-											<a href="#" class="image"><img src="<?=$image['path']?>" alt="<?=$image['description']?>" data-id="<?=$image['id']?>" data-title="<?=$image['title']?>" width="300" height="200"></a>
+											<a href="#" class="image"><img src="images/pic07.jpg" alt="" /></a>
 											<p>J7 Prime - R& 350,00</p>
 										</article>
 										<article>
-											<a href="#" class="image"><img src="<?=$image['path']?>" alt="<?=$image['description']?>" data-id="<?=$image['id']?>" data-title="<?=$image['title']?>" width="300" height="200"></a>
+											<a href="#" class="image"><img src="images/pic08.jpg" alt="" /></a>
 											<p>S10 - R$ 800,00</p>
 										</article>
 										<article>

@@ -52,9 +52,9 @@ if (isset($_FILES['image'], $_POST['title'], $_POST['description'])) {
 		<link rel="stylesheet" href="assets/css/main.css" />
 	</head>
 	<body class="loggedin">
-		
+		<div class="navtop">
 					<?=template_header('Gallery')?>
-
+</div>
 
 <div class="content upload">
 	<h2>Upload Image</h2>
