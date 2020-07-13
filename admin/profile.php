@@ -53,7 +53,7 @@ $stmt->close();
 			
 
 			<div>
-				<p>Detalhes de conta:</p>
+				<h2>Detalhes de conta:</h2>
 				<table>
 					<tr>
 						<td>Login:</td>

@@ -39,7 +39,7 @@ $result = mysqli_query($con,"SELECT * FROM accounts");
 			</div>
 		</nav>
 		<div class="content">			
-			<h1>USUÁRIOS:</h1>
+			<h2>USUÁRIOS:</h2>
 
 <?php
 

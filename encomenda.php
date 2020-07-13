@@ -18,11 +18,11 @@
 								<section id="banner">
 									<div class="content">
 									<br><br>
-<div>
+
 <?php 
-include'shoppingcart/product.php';
+include'shoppingcart/placeorder.php';
 ?>
-</div>
+
 								</section>
 
 						</div>

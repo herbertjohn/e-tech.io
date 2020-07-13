@@ -7,4 +7,3 @@ $recently_added_products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <?=template_header('Home')?>
 
 
-<?=template_footer()?>

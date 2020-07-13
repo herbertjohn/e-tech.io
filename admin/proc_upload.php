@@ -1,4 +1,13 @@
-<!DOCTYPE html>
+<?php
+// Precisamos usar sessões, portanto você deve sempre iniciar as sessões usando o código abaixo.
+session_start();
+// Se o usuário não estiver conectado, redirecione para a página de login ...
+if (!isset($_SESSION['loggedin'])) {
+	header('Location: ../index.php');
+	exit;
+}
+?>
+	<!DOCTYPE html>
 <html lang="pt-br">
 	<head>
 		<meta charset="utf-8">
