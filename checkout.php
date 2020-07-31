@@ -160,69 +160,69 @@ $countries = array("Afghanistan", "Albania", "Algeria", "American Samoa", "Andor
 
 ?>
 
-<?=template_header('Checkout')?>
+<?=template_header('E-Tech/Encomenda')?>
 
 <div class="checkout content-wrapper">
 
-    <h1>Checkout</h1>
+    <h1>Fazer encomenda</h1>
 
     <p class="error"><?=$error?></p>
 
     <?php if (!isset($_SESSION['account_loggedin'])): ?>
-    <p>Already have an account? <a href="index.php?page=myaccount">Log In</a></p>
+    <p>Já tem uma conta? <a href="index.php?page=myaccount">LogIn</a></p>
     <?php endif; ?>
 
     <form action="index.php?page=checkout" method="post">
 
         <?php if (!isset($_SESSION['account_loggedin'])): ?>
-        <h2>Create Account<?php if (strtolower(account_required) == 'false'): ?> (optional)<?php endif; ?></h2>
+        <h2>Criar Conta<?php if (strtolower(account_required) == 'false'): ?> (optional)<?php endif; ?></h2>
 
         <label for="email">Email</label>
         <input type="email" name="email" id="email" placeholder="john@example.com">
 
-        <label for="password">Password</label>
-        <input type="password" name="password" id="password" placeholder="Password">
+        <label for="password">Senha</label>
+        <input type="password" name="password" id="password" placeholder="Senha">
 
-        <label for="cpassword">Confirm Password</label>
-        <input type="password" name="cpassword" id="cpassword" placeholder="Confirm Password">
+        <label for="cpassword">Confirmar Senha</label>
+        <input type="password" name="cpassword" id="cpassword" placeholder="Confirmar Senha">
         <?php endif; ?>
 
-        <h2>Shipping Details</h2>
+        <h2>Detalhes para entrega</h2>
 
         <div class="row1">
-            <label for="first_name">First Name</label>
+            <label for="first_name">Primeiro Nome</label>
             <input type="text" value="<?=$account['first_name']?>" name="first_name" id="first_name" placeholder="John" required>
         </div>
 
         <div class="row2">
-            <label for="last_name">Last Name</label>
+            <label for="last_name">Ultimo Nome</label>
             <input type="text" value="<?=$account['last_name']?>" name="last_name" id="last_name" placeholder="Doe" required>
         </div>
 
-        <label for="address_street">Address</label>
-        <input type="text" value="<?=$account['address_street']?>" name="address_street" id="address_street" placeholder="24 High Street" required>
+        <label for="address_street">Endereço</label>
+        <input type="text" value="<?=$account['address_street']?>" name="address_street" id="address_street" placeholder="Rua 13 de Junho, 251, Centro" required>
 
-        <label for="address_city">City</label>
+        <label for="address_city">Cidade</label>
         <input type="text" value="<?=$account['address_city']?>" name="address_city" id="address_city" placeholder="New York" required>
 
         <div class="row1">
-            <label for="address_state">State</label>
+            <label for="address_state">Estado</label>
             <input type="text" value="<?=$account['address_state']?>" name="address_state" id="address_state" placeholder="NY" required>
         </div>
 
         <div class="row2">
-            <label for="address_zip">Zip</label>
+            <label for="address_zip">CEP</label>
             <input type="text" value="<?=$account['address_zip']?>" name="address_zip" id="address_zip" placeholder="10001" required>
         </div>
 
-        <label for="address_country">Country</label>
+        <label for="address_country">País</label>
         <select name="address_country" required>
             <?php foreach($countries as $country): ?>
             <option value="<?=$country?>"<?=$country==$account['address_country']?' selected':''?>><?=$country?></option>
             <?php endforeach; ?>
         </select>
 
-        <button type="submit" name="checkout">Place Order</button>
+        <button type="submit" name="checkout">Fazer a encomenda</button>
 
         <?php if (strtolower(paypal_enabled) == 'true'): ?>
         <div class="paypal">
@@ -233,5 +233,6 @@ $countries = array("Afghanistan", "Albania", "Algeria", "American Samoa", "Andor
     </form>
 
 </div>
+<br><br><br><br><br><br><br><br>
 
 <?=template_footer()?>

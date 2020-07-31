@@ -24,7 +24,7 @@ if (isset($_POST['email'], $_POST['password']) && filter_var($_POST['email'], FI
         }
         exit;
     } else {
-        $error = 'Incorrect Email/Password!';
+        $error = 'E-mail ou Senha incorreto!';
     }
 }
 // If user is logged in
@@ -109,6 +109,7 @@ if (isset($_SESSION['account_loggedin'])) {
 
     <?php endif; ?>
 
-</div><br><br><br><br><br><br><br><br><br>
+</div>
+<br><br><br><br><br><br><br><br><br>
 
 <?=template_footer()?>
