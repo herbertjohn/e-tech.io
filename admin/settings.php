@@ -20,9 +20,9 @@ if (!empty($_POST)) {
 
 ?>
 
-<?=template_admin_header('Settings')?>
+<?=template_admin_header('Configuração')?>
 
-<h2>Settings</h2>
+<h2>Configuração</h2>
 
 <div class="content-block">
     <form action="" method="post" class="form responsive-width-100">
@@ -30,7 +30,7 @@ if (!empty($_POST)) {
         <label><?=str_replace('_', ' ', $matches[1][$i])?></label>
         <input type="text" name="<?=$matches[1][$i]?>" value="<?=htmlspecialchars($matches[2][$i], ENT_QUOTES)?>" placeholder="<?=str_replace('_', ' ', $matches[1][$i])?>">
         <?php endfor; ?>
-        <input type="submit" value="Salvar">
+        <input type="submit" value="Save">
     </form>
 </div>
 

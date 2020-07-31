@@ -52,32 +52,32 @@ $stmt->execute();
 $total_products = $stmt->fetchColumn()
 ?>
 
-<?=template_header('E-Tech/Produtos')?>
+<?=template_header('Products')?>
 
 <div class="products content-wrapper">
 
-    <h1>Produtos</h1>
+    <h1>Products</h1>
 
     <div class="products-header">
-        <p><?=$total_products?> Produtos</p>
+        <p><?=$total_products?> Products</p>
         <form action="" method="get" class="products-form">
             <input type="hidden" name="page" value="products">
             <label class="category">
-                Categoria
+                Category
                 <select name="category">
-                    <option value="all"<?=($category == 'all' ? ' selected' : '')?>>tudo</option>
+                    <option value="all"<?=($category == 'all' ? ' selected' : '')?>>All</option>
                     <?php foreach ($categories as $c): ?>
                     <option value="<?=$c['id']?>"<?=($category == $c['id'] ? ' selected' : '')?>><?=$c['name']?></option>
                     <?php endforeach; ?>
                 </select>
             </label>
             <label class="sortby">
-                Ordenar por:
+                Sort by
                 <select name="sort">
-                    <option value="sort1"<?=($sort == 'sort1' ? ' selected' : '')?>>Ordem alfabética A-Z</option>
-                    <option value="sort2"<?=($sort == 'sort2' ? ' selected' : '')?>>Ordem alfabética Z-A</option>
-                    <option value="sort3"<?=($sort == 'sort3' ? ' selected' : '')?>>Mais novos</option>
-                    <option value="sort4"<?=($sort == 'sort4' ? ' selected' : '')?>>Mais antigos</option>
+                    <option value="sort1"<?=($sort == 'sort1' ? ' selected' : '')?>>Alphabetical A-Z</option>
+                    <option value="sort2"<?=($sort == 'sort2' ? ' selected' : '')?>>Alphabetical Z-A</option>
+                    <option value="sort3"<?=($sort == 'sort3' ? ' selected' : '')?>>Newest</option>
+                    <option value="sort4"<?=($sort == 'sort4' ? ' selected' : '')?>>Oldest</option>
                 </select>
             </label>
         </form>
@@ -108,5 +108,5 @@ $total_products = $stmt->fetchColumn()
     </div>
 
 </div>
-
+<br><br><br><br><br><br>
 <?=template_footer()?>

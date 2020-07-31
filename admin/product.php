@@ -114,31 +114,31 @@ if (isset($_GET['id'])) {
 }
 ?>
 
-<?=template_admin_header('Criar Produtos')?>
+<?=template_admin_header($page . ' Produto')?>
 
-<h2>Criar Produtos</h2>
+<h2><?=$page?> Produtos</h2>
 
 <div class="content-block">
 
     <form action="" method="post" class="form responsive-width-100">
 
         <label for="name">Nome</label>
-        <input type="text" name="name" placeholder="Nome" value="<?=$product['name']?>" required>
+        <input type="text" name="name" placeholder="Name" value="<?=$product['name']?>" required>
 
-        <label for="desc">Descrição</label>
-        <textarea name="desc" placeholder="Descrição"><?=$product['desc']?></textarea>
+        <label for="desc">Descrição (HTML)</label>
+        <textarea name="desc" placeholder="Product Description (HTML)"><?=$product['desc']?></textarea>
 
         <label for="price">Preço</label>
-        <input type="number" name="price" placeholder="Preço" min="0" step=".01" value="<?=$product['price']?>" required>
+        <input type="number" name="price" placeholder="Price" min="0" step=".01" value="<?=$product['price']?>" required>
 
-        <label for="rrp">valor antigo</label>
-        <input type="number" name="rrp" placeholder="valor antigo" min="0" step=".01" value="<?=$product['rrp']?>" required>
+        <label for="rrp">Valor Antigo</label>
+        <input type="number" name="rrp" placeholder="RRP" min="0" step=".01" value="<?=$product['rrp']?>" required>
 
         <label for="quantity">Quantidade</label>
-        <input type="number" name="quantity" placeholder="Quantidade" min="0" value="<?=$product['quantity']?>" required>
+        <input type="number" name="quantity" placeholder="Quantity" min="0" value="<?=$product['quantity']?>" required>
 
-        <label for="date">Data de criação</label>
-        <input type="datetime-local" name="date" placeholder="Data de criação" value="<?=date('Y-m-d\TH:i:s', strtotime($product['date_added']))?>" required>
+        <label for="date">Adicionado em:</label>
+        <input type="datetime-local" name="date" placeholder="Date" value="<?=date('Y-m-d\TH:i:s', strtotime($product['date_added']))?>" required>
 
         <label for="add_categories">Categorias</label>
         <div style="display:flex;flex-flow:wrap;">
@@ -152,16 +152,16 @@ if (isset($_GET['id'])) {
                 <option value="<?=$cat['id']?>"><?=$cat['name']?></option>
                 <?php endforeach; ?>
             </select>
-            <button id="add_selected_categories" style="width:50%;">Adicionar</button>
+            <button id="add_selected_categories" style="width:50%;">Add</button>
             <button id="remove_selected_categories" style="width:50%;">Remover</button>
             <input type="hidden" name="categories_list" value="<?=implode(',', array_column($product['categories'], 'id'))?>">
         </div>
 
-        <label for="add_option">Opcional</label>
+        <label for="add_option">Opções</label>
         <div style="display:flex;flex-flow:wrap;">
             <input type="text" name="option_title" placeholder="Option Title (e.g. Size)" style="width:47%;margin-right:13px;">
             <input type="text" name="option_name" placeholder="Option Name (e.g. Large)" style="width:50%;">
-            <button id="add_option" style="margin-bottom:10px;">Adicionar</button>
+            <button id="add_option" style="margin-bottom:10px;">Add</button>
             <select name="options" multiple>
                 <?php foreach ($product['options'] as $option): ?>
                 <option value="<?=$option['title']?>=<?=$option['name']?>"><?=$option['title']?>,<?=$option['name']?></option>
@@ -185,13 +185,13 @@ if (isset($_GET['id'])) {
                 <?php endif; ?>
                 <?php endforeach; ?>
             </select>
-            <button id="add_selected_images" style="width:50%;">Adicionar</button>
+            <button id="add_selected_images" style="width:50%;">Add</button>
             <button id="remove_selected_images" style="width:50%;">Remover</button>
             <input type="hidden" name="images_list" value="<?=$product['imgs']?>">
         </div>
 
         <div>
-            <label for="main_image">Imagem principal</label>
+            <label for="main_image">Imagem Principal</label>
             <select name="main_image" id="main_image">
                 <?php foreach (explode(',', $product['imgs']) as $img): ?>
                 <option value="<?=$img?>"<?=$product['img'] == $img ? ' selected' : ''?>><?=$img?></option>
@@ -200,7 +200,7 @@ if (isset($_GET['id'])) {
         </div>
 
         <div class="submit-btns">
-            <input type="submit" name="submit" value="Criar">
+            <input type="submit" name="submit" value="Submit">
             <?php if ($page == 'Edit'): ?>
             <input type="submit" name="delete" value="Delete" class="delete">
             <?php endif; ?>

@@ -15,11 +15,11 @@ if (isset($_GET['query']) && $_GET['query'] != '') {
     $total_products = count($products);
 } else {
     // Simple error, if no search query was specified why is the user on this page?
-    $error = 'Nenhuma consulta de pesquisa foi especificada!';
+    $error = 'No search query was specified!';
 }
 ?>
 
-<?=template_header('pesquisar')?>
+<?=template_header('Search')?>
 
 <?php if ($error): ?>
 
@@ -29,9 +29,9 @@ if (isset($_GET['query']) && $_GET['query'] != '') {
 
 <div class="products content-wrapper">
 
-    <h1>Resultados da busca por "<?=$search_query?>"</h1>
+    <h1>Search Results for "<?=$search_query?>"</h1>
 
-    <p><?=$total_products?> Produtos</p>
+    <p><?=$total_products?> Products</p>
 
     <div class="products-wrapper">
         <?php foreach ($products as $product): ?>
@@ -51,5 +51,5 @@ if (isset($_GET['query']) && $_GET['query'] != '') {
 </div>
 
 <?php endif; ?>
-
+<br><br><br><br><br><br><br><br>
 <?=template_footer()?>

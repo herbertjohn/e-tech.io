@@ -47,7 +47,7 @@ if (isset($_SESSION['account_loggedin'])) {
 }
 ?>
 
-<?=template_header('E-Tech/Minha conta')?>
+<?=template_header('Minha Conta')?>
 
 <div class="myaccount content-wrapper">
 
@@ -57,7 +57,7 @@ if (isset($_SESSION['account_loggedin'])) {
 
     <form action="index.php?page=myaccount" method="post">
         <label for="email">Email</label>
-        <input type="email" name="email" id="email" placeholder="john@exemplo.com" required>
+        <input type="email" name="email" id="email" placeholder="john@example.com" required>
         <label for="password">Senha</label>
         <input type="password" name="password" id="password" placeholder="Senha" required>
         <input type="submit" value="Login">
@@ -71,24 +71,24 @@ if (isset($_SESSION['account_loggedin'])) {
 
     <?php else: ?>
 
-    <h1>My Account</h1>
+    <h1>Minha Conta</h1>
 
-    <h2>My Orders</h2>
+    <h2>Minhas Encomendas</h2>
 
     <table>
         <thead>
             <tr>
-                <td colspan="2">Product</td>
-                <td class="rhide">Date</td>
-                <td class="rhide">Price</td>
-                <td>Quantity</td>
+                <td colspan="2">Produto</td>
+                <td class="rhide">Data</td>
+                <td class="rhide">Preço</td>
+                <td>Quantidade</td>
                 <td>Total</td>
             </tr>
         </thead>
         <tbody>
             <?php if (empty($transactions)): ?>
             <tr>
-                <td colspan="6" style="text-align:center;">You have no recent orders</td>
+                <td colspan="6" style="text-align:center;">Você não tem pedidos recentes</td>
             </tr>
             <?php else: ?>
             <?php foreach ($transactions as $transaction): ?>
@@ -109,6 +109,6 @@ if (isset($_SESSION['account_loggedin'])) {
 
     <?php endif; ?>
 
-</div><br>
-<br><br>
+</div><br><br><br><br><br><br><br><br><br>
+
 <?=template_footer()?>

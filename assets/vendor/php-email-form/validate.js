@@ -101,12 +101,12 @@
 
     if( ! action ) {
       this_form.find('.loading').slideUp();
-      this_form.find('.sent-message').slideDown().html('The form action property is not set!');
+      this_form.find('.error-message').slideDown().html('The form action property is not set!');
       return false;
     }
     
     this_form.find('.sent-message').slideUp();
-    this_form.find('.sent-message').slideUp();
+    this_form.find('.error-message').slideUp();
     this_form.find('.loading').slideDown();
 
     if ( $(this).data('recaptcha-site-key') ) {
@@ -137,15 +137,15 @@
       } else {
         this_form.find('.loading').slideUp();
         if(!msg) {
-          msg = 'Sua mensagem foi enviada. Obrigado! ' + action + '<br>';
+          msg = 'Form submission failed and no error message returned from: ' + action + '<br>';
         }
-        this_form.find('.sent-message').slideDown().html(msg);
+        this_form.find('.error-message').slideDown().html(msg);
       }
     }).fail( function(data){
       console.log(data);
-      var error_msg = "Sua mensagem foi enviada. Obrigado!<br>";
+      var error_msg = "Form submission failed!<br>";
       if(data.statusText || data.status) {
-        error_msg += '';
+        error_msg += 'Status:';
         if(data.statusText) {
           error_msg += ' ' + data.statusText;
         }
@@ -158,7 +158,7 @@
         error_msg += data.responseText;
       }
       this_form.find('.loading').slideUp();
-      this_form.find('.sent-message').slideDown().html();
+      this_form.find('.error-message').slideDown().html(error_msg);
     });
   }
 

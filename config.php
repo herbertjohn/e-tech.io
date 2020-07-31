@@ -11,9 +11,9 @@ define('db_name', 'shoppingcart_advanced');
 
 /* GENERAL SETTINGS */
 // This will change the title on the website
-define('site_name', 'E-Tech');
+define('site_name', 'Shopping Cart');
 // Currency code, default is USD, you can view the list here: http://cactus.io/resources/toolbox/html-currency-symbol-codes
-define('currency_code', 'R$ ');
+define('currency_code', '&dollar;');
 // Account required for checkout?
 define('account_required', 'true');
 

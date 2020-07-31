@@ -6,9 +6,9 @@ $stmt->execute();
 $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<?=template_admin_header('Procutos')?>
+<?=template_admin_header('Produtos')?>
 
-<h2>Procutos</h2>
+<h2>Produtos</h2>
 
 <div class="links">
     <a href="index.php?page=product">Criar Produto</a>
@@ -22,8 +22,8 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
                     <td class="responsive-hidden">#</td>
                     <td>Nome</td>
                     <td>Preço</td>
-                    <td class="responsive-hidden">Preço antigo</td>
-                    <td>Quantity</td>
+                    <td class="responsive-hidden">Valor Antigo</td>
+                    <td>Quantidade</td>
                     <td class="responsive-hidden">Imagens</td>
                     <td class="responsive-hidden">Criado em</td>
                 </tr>

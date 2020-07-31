@@ -6,7 +6,7 @@ $stmt->execute();
 $accounts = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<?=template_admin_header('E-Tech/Contas')?>
+<?=template_admin_header('Contas')?>
 
 <h2>Contas</h2>
 

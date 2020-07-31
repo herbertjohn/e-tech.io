@@ -6,12 +6,12 @@ $stmt->execute();
 $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
 ?>
 
-<?=template_admin_header('E-Tech/Categorias')?>
+<?=template_admin_header('Categorias')?>
 
 <h2>Categorias</h2>
 
 <div class="links">
-    <a href="index.php?page=category">Criar categoria</a>
+    <a href="index.php?page=category">Criar Categoria</a>
 </div>
 
 <div class="content-block">

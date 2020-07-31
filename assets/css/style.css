@@ -1257,7 +1257,7 @@ section {
   font-size: 13px;
 }
 
-.contact .php-email-form .sent-message {
+.contact .php-email-form .error-message {
   display: none;
   color: #fff;
   background: #ed3c0d;

@@ -26,10 +26,10 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <table>
             <thead>
                 <tr>
-                    <td colspan="2">Product</td>
+                    <td colspan="2">Produto</td>
                     <td class="responsive-hidden">Data</td>
                     <td class="responsive-hidden">Preço</td>
-                    <td>Quantidade</td>
+                    <td>Quantity</td>
                     <td>Total</td>
                     <td class="responsive-hidden">Email</td>
                     <td class="responsive-hidden">Status</td>

@@ -37,16 +37,16 @@ if (isset($_GET['id'])) {
 }
 ?>
 
-<?=template_admin_header($page . ' Categoria')?>
+<?=template_admin_header($page . ' Categorias')?>
 
-<h2>Criar Categoria</h2>
+<h2><?=$page?> Categorias</h2>
 
 <div class="content-block">
     <form action="" method="post" class="form responsive-width-100">
-
-        <input type="text" name="name" placeholder="Nome" value="<?=$category['name']?>" required>
+        <label for="name">Name</label>
+        <input type="text" name="name" placeholder="Name" value="<?=$category['name']?>" required>
         <div class="submit-btns">
-            <input type="submit" name="submit" value="Criar">
+            <input type="submit" name="submit" value="Submit">
             <?php if ($page == 'Edit'): ?>
             <input type="submit" name="delete" value="Delete" class="delete">
             <?php endif; ?>

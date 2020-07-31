@@ -40,7 +40,13 @@ echo <<<EOT
 		<link href="style.css" rel="stylesheet" type="text/css">
 		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
 
-        <!-- Vendor CSS Files -->
+          <meta content="" name="descriptison">
+  <meta content="" name="keywords">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
   <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
   <link href="assets/vendor/icofont/icofont.min.css" rel="stylesheet">
   <link href="assets/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
@@ -54,14 +60,13 @@ echo <<<EOT
 	<body>
         <header>
             <div class="content-wrapper">
-                <h1>$site_name</h1>
+                <h1>E-Tech</h1>
                 <nav>
                     <a href="index.php">Home</a>
                     <a href="index.php?page=products">Produtos</a>
-                     <a href="index.php?page=servicos">Serviços</a>
+                    <a href="index.php?page=servicos">Serviços</a>
                     <a href="index.php?page=sobre">Sobre</a>
-
-					         <a href="index.php?page=myaccount">Minha conta</a>
+                    <a href="index.php?page=myaccount">Minha Conta</a>
                     $admin_link
                 </nav>
                 <div class="link-icons">
@@ -87,36 +92,29 @@ EOT;
 function template_footer() {
 $year = date('Y');
 echo <<<EOT
-        </main>
-       <br><br><br><br><br><br><br><br>
-       <!-- ======= Footer ======= -->
+       </main><!-- End #main -->
+
+  <!-- ======= Footer ======= -->
   <footer id="footer">
     <div class="container">
       <h3>E-Tech</h3>
-      <p>No rumo da evolução tecnológica</p>
+      <p>No rastro da evolução tecnológica!</p>
       <div class="social-links">
-        <a href="#" class="twitter"><i class="bx bxl-twitter"></i></a>
         <a href="#" class="facebook"><i class="bx bxl-facebook"></i></a>
         <a href="#" class="instagram"><i class="bx bxl-instagram"></i></a>
-        <a href="#" class="google-plus"><i class="bx bxl-skype"></i></a>
         <a href="#" class="linkedin"><i class="bx bxl-linkedin"></i></a>
       </div>
       <div class="copyright">
         &copy; 2020 <strong><span>E-Tech</span></strong>. Todos os direitos reservados
       </div>
-      <div class="credits">
-       
-
-        Criado por: <a href="https://pontuadigital.com.br">Pontúa Digital</a>
-      </div>
+      
     </div>
   </footer><!-- End Footer -->
 
   <div id="preloader"></div>
   <a href="#" class="back-to-top"><i class="ri-arrow-up-line"></i></a>
 
-        <script src="script.js"></script>
-         <!-- Vendor JS Files -->
+  <!-- Vendor JS Files -->
   <script src="assets/vendor/jquery/jquery.min.js"></script>
   <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
   <script src="assets/vendor/jquery.easing/jquery.easing.min.js"></script>
@@ -129,7 +127,7 @@ echo <<<EOT
 
   <!-- Template Main JS File -->
   <script src="assets/js/main.js"></script>
-
+        <script src="script.js"></script>
     </body>
 </html>
 EOT;
@@ -160,7 +158,7 @@ echo <<<EOT
             <a href="index.php?page=categories"><i class="fas fa-list"></i>Categorias</a>
             <a href="index.php?page=accounts"><i class="fas fa-users"></i>Contas</a>
             <a href="index.php?page=images"><i class="fas fa-images"></i>Upload Images</a>
-            <a href="index.php?page=settings"><i class="fas fa-tools"></i>Configuração</a>
+            <a href="index.php?page=settings"><i class="fas fa-tools"></i>Configurações</a>
             <a href="index.php?page=logout"><i class="fas fa-sign-out-alt"></i>Sair</a>
         </aside>
         <main class="responsive-width-100">

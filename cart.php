@@ -109,7 +109,7 @@ if ($products_in_cart) {
 }
 ?>
 
-<?=template_header('E-Tech/Carrinho de Compras')?>
+<?=template_header('Shopping Cart')?>
 
 <div class="cart content-wrapper">
 
@@ -119,7 +119,7 @@ if ($products_in_cart) {
         <table>
             <thead>
                 <tr>
-                    <td colspan="2">Produtos</td>
+                    <td colspan="2">Produto</td>
                     <td></td>
                     <td class="rhide">Preço</td>
                     <td>Quantidade</td>
@@ -150,7 +150,7 @@ if ($products_in_cart) {
                     </td>
                     <td class="price rhide"><?=currency_code?><?=number_format($product['meta']['price'],2)?></td>
                     <td class="quantity">
-                        <input type="number" name="quantity-<?=$num?>" value="<?=$product['quantity']?>" min="1" max="<?=$product['meta']['quantity']?>" placeholder="Quantity" required>
+                        <input type="number" name="quantity-<?=$num?>" value="<?=$product['quantity']?>" min="1" max="<?=$product['meta']['quantity']?>" placeholder="Quantidade" required>
                     </td>
                     <td class="price"><?=currency_code?><?=number_format($product['meta']['price'] * $product['quantity'],2)?></td>
                 </tr>
@@ -167,11 +167,11 @@ if ($products_in_cart) {
         <div class="buttons">
             <input type="submit" value="Limpar Carrinho" name="emptycart">
             <input type="submit" value="Atualizar" name="update">
-            <input type="submit" value="Fazer Encomenda " name="checkout">
+            <input type="submit" value="Encomendar" name="checkout">
         </div>
 
     </form>
 
-</div><br><br>
-
+</div>
+<br><br><br><br><br><br><br><br><br><br>
 <?=template_footer()?>

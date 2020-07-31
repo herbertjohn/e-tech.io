@@ -5,7 +5,7 @@ defined('shoppingcart') or exit;
 unset($_SESSION['cart']);
 ?>
 
-<?=template_header('E-Tech/Encomenda')?>
+<?=template_header('Place Order')?>
 
 <?php if ($error): ?>
 <p class="content-wrapper error"><?=$error?></p>

@@ -5,7 +5,7 @@ if (isset($_FILES['upload_images'])) {
     $fileCount = count($upload_images['name']);
     for ($i = 0; $i < $fileCount; $i++) {
         if (file_exists('../imgs/' . $upload_images['name'][$i])) {
-            $error .= 'Image already exists with this name: <b>' . $upload_images['name'][$i] . '</b><br>';
+            $error .= 'A imagem já existe com este nome: <b>' . $upload_images['name'][$i] . '</b><br>';
         } else {
             move_uploaded_file($upload_images['tmp_name'][$i], '../imgs/' . $upload_images['name'][$i]);
         }
@@ -19,7 +19,7 @@ if (isset($_GET['delete']) && file_exists('../imgs/' . $_GET['delete'])) {
 $imgs = glob('../imgs/*.{jpg,png,gif,jpeg,webp}', GLOB_BRACE);
 ?>
 
-<?=template_admin_header('E-Tech/Imagens')?>
+<?=template_admin_header('Imagens')?>
 
 <h2>Imagens</h2>
 
@@ -28,7 +28,7 @@ $imgs = glob('../imgs/*.{jpg,png,gif,jpeg,webp}', GLOB_BRACE);
     <form action="" method="post" class="form responsive-width-100" enctype="multipart/form-data">
         <div class="responsive-flex-column" style="display:flex;">
             <input type="file" id="images" name="upload_images[]" multiple required>
-            <input type="submit" value="Adicionar imagem" class="responsive-width-100">
+            <input type="submit" value="Upload Imagens" class="responsive-width-100">
         </div>
     </form>
     <div class="images">
